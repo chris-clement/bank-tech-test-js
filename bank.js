@@ -15,7 +15,7 @@ class Bank {
     this.debit = amount;
     this.date = date;
   }
-  add_to_transaction_history() {
+  addToTransactionHistory() {
     this.transaction_history.push({ date: this.date, debit: this.debit, credit: this.credit})
   }
 }

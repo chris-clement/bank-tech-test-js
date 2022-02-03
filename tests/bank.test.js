@@ -60,15 +60,15 @@ describe('Bank class', () => {
       expect(bank.date.getFullYear()).toEqual(2022);
     });
   });
-  describe('#add_to_transaction_history', () => {
+  describe('#addToTransactionHistory', () => {
     it('updates the transaction_history for a single deposit', () => {
       bank.deposit(100, new Date(2022, 1, 1));
-      bank.add_to_transaction_history();
+      bank.addToTransactionHistory();
       expect(bank.transaction_history).toEqual([{date: new Date(2022, 1, 1), debit: 0, credit: 100}]);
     });
     it('updates the transaction_history for a single withdrawal', () => {
       bank.withdraw(100, new Date(2022, 1, 1));
-      bank.add_to_transaction_history();
+      bank.addToTransactionHistory();
       expect(bank.transaction_history).toEqual([{date: new Date(2022, 1, 1), debit: 100, credit: 0}]);
     });
   });
