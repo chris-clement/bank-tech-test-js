@@ -20,6 +20,11 @@ describe('Bank class', () => {
       bank.deposit(100);
       expect(bank.debit).toBe(0);
     });
+    it('has an associated date, assumed to be today if no date given', () => {
+      bank.deposit(100);
+      expect(bank.date).toEqual( new Date());
+    });
+
   });
   describe('#withdraw', () => {
     it('changes debit by the amount passed as an argument', () => {
