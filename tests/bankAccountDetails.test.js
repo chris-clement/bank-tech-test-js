@@ -49,5 +49,8 @@ describe('bankAccountDetails class', () => {
     it('converts credits into blank string if 0, debit to 2dp, balance to 2dp', () => {
       expect(bankDetails.formatHistoryNumbers([{credit: 0, debit: 100, balance: -100}])).toEqual([{credit: '', debit: '100.00', balance:'-100.00'}]);
     });
+    it('converts a history with multiple transactions', () => {
+      expect(bankDetails.formatHistoryNumbers([{credit: 0, debit: 100, balance: -100}, {credit: 0, debit: 100, balance: -200}] )).toEqual([{credit: '', debit: '100.00', balance:'-100.00'}, {credit: '', debit: '100.00', balance:'-200.00'}]);
+    })
   });
 });

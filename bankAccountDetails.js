@@ -14,22 +14,25 @@ class bankAccountDetails {
     return history;
   };
   formatHistoryNumbers(history) {
-    if (history[0]['credit'] == 0) {
-      history[0]['credit'] = '';
-    } 
-    else {
-      history[0]['credit'] = history[0]['credit'].toFixed(2);
-    };
-    if (history[0]['debit'] == 0) {
-      history[0]['debit'] = '';
-    } else {
-      history[0]['debit'] = history[0]['debit'].toFixed(2);
-    }
-    if (history[0]['balance'] == 0) {
-      history[0]['balance'] = '';
-    } else {
-      history[0]['balance'] = history[0]['balance'].toFixed(2);
-    }
+    history.forEach((transaction) => {
+      if (transaction['credit'] == 0) {
+        transaction['credit'] = '';
+      } 
+      else {
+        transaction['credit'] = transaction['credit'].toFixed(2);
+      };
+      if (transaction['debit'] == 0) {
+        transaction['debit'] = '';
+      } else {
+        transaction['debit'] = transaction['debit'].toFixed(2);
+      }
+      if (transaction['balance'] == 0) {
+        transaction['balance'] = '';
+      } else {
+        transaction['balance'] = transaction['balance'].toFixed(2);
+      }
+    })
+    
     return history
   };
   printStatement() {
