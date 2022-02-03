@@ -16,9 +16,15 @@ class bankAccountDetails {
   formatHistoryNumbers(history) {
     if (history[0]['credit'] == 0) {
       history[0]['credit'] = '';
-    } else {
+    } 
+    else {
       history[0]['credit'] = history[0]['credit'].toFixed(2);
     };
+    if (history[0]['debit'] == 0) {
+      history[0]['debit'] = '';
+    } else {
+      history[0]['debit'] = history[0]['debit'].toFixed(2);
+    }
     return history
   };
   printStatement() {
