@@ -43,8 +43,11 @@ describe('bankAccountDetails class', () => {
     });
   });
   describe('#formatHistoryNumbers', () => {
-    it('converts credits into the right format', () => {
+    it('converts credits into 2dp string', () => {
       expect(bankDetails.formatHistoryNumbers([{credit: 100}])).toEqual([{credit: '100.00'}]);
+    });
+    it('converts credits into blank string if 0', () => {
+      expect(bankDetails.formatHistoryNumbers([{credit: 0}])).toEqual([{credit: ''}]);
     });
   });
 });

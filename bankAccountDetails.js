@@ -14,7 +14,11 @@ class bankAccountDetails {
     return history;
   };
   formatHistoryNumbers(history) {
-    history[0]['credit'] = history[0]['credit'].toFixed(2);
+    if (history[0]['credit'] == 0) {
+      history[0]['credit'] = '';
+    } else {
+      history[0]['credit'] = history[0]['credit'].toFixed(2);
+    };
     return history
   };
   printStatement() {
