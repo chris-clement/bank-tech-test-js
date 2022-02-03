@@ -3,7 +3,7 @@ class Bank {
     this.credit = 0
   }
   deposit(amount) {
-    this.credit += amount
+    this.credit = amount
   }
 }
 
