@@ -25,6 +25,11 @@ class bankAccountDetails {
     } else {
       history[0]['debit'] = history[0]['debit'].toFixed(2);
     }
+    if (history[0]['balance'] == 0) {
+      history[0]['balance'] = '';
+    } else {
+      history[0]['balance'] = history[0]['balance'].toFixed(2);
+    }
     return history
   };
   printStatement() {
