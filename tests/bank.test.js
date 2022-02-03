@@ -22,7 +22,7 @@ describe('Bank class', () => {
     });
     it('has an associated date, assumed to be today if no date given', () => {
       bank.deposit(100);
-      expect(bank.date).toEqual( new Date());
+      expect(bank.date).toEqual(new Date());
     });
 
   });
@@ -40,6 +40,10 @@ describe('Bank class', () => {
       bank.deposit(100);
       bank.withdraw(50);
       expect(bank.credit).toBe(0);
+    });
+    it('has an associated date, assumed to be today if no date given', () => {
+      bank.withdraw(100);
+      expect(bank.date).toEqual(new Date());
     });
   })
  

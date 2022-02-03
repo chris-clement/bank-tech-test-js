@@ -9,9 +9,10 @@ class Bank {
     this.credit = amount;
     this.date = date;
   }
-  withdraw(amount) {
+  withdraw(amount, date = new Date()) {
     this.credit = 0;
     this.debit = amount;
+    this.date = date;
   }
 }
 
