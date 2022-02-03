@@ -22,7 +22,15 @@ describe('Bank class', () => {
     });
     it('has an associated date, assumed to be today if no date given', () => {
       bank.deposit(100);
-      expect(bank.date).toEqual(new Date());
+      expect(bank.date.getDate()).toEqual(new Date().getDate());
+      expect(bank.date.getMonth()).toEqual(new Date().getMonth());
+      expect(bank.date.getFullYear()).toEqual(new Date().getFullYear());
+    });
+    it('if certain date is entered, this is stored in the date variable', () => {
+      bank.deposit(100, new Date(2022, 1, 1));
+      expect(bank.date.getDate()).toEqual(1);
+      expect(bank.date.getMonth()).toEqual(1);
+      expect(bank.date.getFullYear()).toEqual(2022);
     });
 
   });
@@ -44,6 +52,12 @@ describe('Bank class', () => {
     it('has an associated date, assumed to be today if no date given', () => {
       bank.withdraw(100);
       expect(bank.date).toEqual(new Date());
+    });
+    it('if certain date is entered, this is stored in the date variable', () => {
+      bank.withdraw(100, new Date(2022, 1, 1));
+      expect(bank.date.getDate()).toEqual(1);
+      expect(bank.date.getMonth()).toEqual(1);
+      expect(bank.date.getFullYear()).toEqual(2022);
     });
   })
  
