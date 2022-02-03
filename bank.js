@@ -4,6 +4,7 @@ class Bank {
     this.debit = 0
   }
   deposit(amount) {
+    this.debit = 0;
     this.credit = amount;
   }
   withdraw(amount) {

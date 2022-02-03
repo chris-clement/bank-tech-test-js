@@ -15,6 +15,11 @@ describe('Bank class', () => {
       bank.deposit(50);
       expect(bank.credit).toBe(50);
     });
+    it('sets debit varible to 0', () => {
+      bank.withdraw(50);
+      bank.deposit(100);
+      expect(bank.debit).toBe(0);
+    });
   });
   describe('#withdraw', () => {
     it('changes debit by the amount passed as an argument', () => {
