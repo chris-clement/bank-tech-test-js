@@ -71,6 +71,5 @@ describe('Bank class', () => {
       bank.add_to_transaction_history();
       expect(bank.transaction_history).toEqual([{date: new Date(2022, 1, 1), debit: 100, credit: 0}]);
     });
-  })
- 
+  });
 });
