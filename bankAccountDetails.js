@@ -26,8 +26,10 @@ class bankAccountDetails {
     
     return history
   };
-  printStatement() {
-    console.log("date || credit || debit || balance");
+  printStatement(history) {
+    this.formatHistoryNumbers(history)
+    console.log("date || credit || debit || balance\n" + 
+    `${history[0]['date']} || ${history[0]['credit']} || ${history[0]['debit']} || ${history[0]['balance']}`)
   };
 };
 

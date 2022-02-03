@@ -37,9 +37,15 @@ describe('bankAccountDetails class', () => {
     });
   });
   describe('#printStatement', () => {
-    it('prints the headers', () => {
-      bankDetails.printStatement();
-      expect(global.console.log).toHaveBeenCalledWith("date || credit || debit || balance");
+    // it('prints the headers', () => {
+    //   bankDetails.printStatement([{date: new Date(2022, 1, 1), credit: 100, debit: 0, balance: 100}]);
+    //   expect(global.console.log).toHaveBeenCalledWith("date || credit || debit || balance");
+    // });
+    it('prints a single deposit transaction', () => {
+      bankDetails.printStatement([{date: new Date(2023, 1, 10), credit: 1000, debit: 0, balance: 1000}]);
+      expect(global.console.log).toHaveBeenCalledWith(
+        "date || credit || debit || balance\n" + 
+        "10/01/2023 || 1000.00 || || 1000.00");
     });
   });
   describe('#formatHistoryNumbers', () => {
