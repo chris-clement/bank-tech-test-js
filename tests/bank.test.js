@@ -65,7 +65,12 @@ describe('Bank class', () => {
       bank.deposit(100, new Date(2022, 1, 1));
       bank.add_to_transaction_history();
       expect(bank.transaction_history).toEqual([{date: new Date(2022, 1, 1), debit: 0, credit: 100}]);
-    })
+    });
+    it('updates the transaction_history for a single withdrawal', () => {
+      bank.withdraw(100, new Date(2022, 1, 1));
+      bank.add_to_transaction_history();
+      expect(bank.transaction_history).toEqual([{date: new Date(2022, 1, 1), debit: 100, credit: 0}]);
+    });
   })
  
 });
