@@ -17,7 +17,10 @@ describe('Bank class', () => {
     });
   });
   describe('#withdraw', () => {
-  
+    it('changes debit by the amount passed as an argument', () => {
+      bank.withdraw(100);
+      expect(bank.debit).toBe(100);
+    });
   })
  
 });
