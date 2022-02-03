@@ -13,7 +13,9 @@ class bankAccountDetails {
     });
     return history;
   };
- 
+  printStatement() {
+    console.log("date || credit || debit || balance");
+  };
 };
 
 module.exports = bankAccountDetails;

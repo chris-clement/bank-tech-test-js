@@ -1,5 +1,9 @@
 const bankAccountDetails = require('../bankAccountDetails.js')
 
+global.console = {
+  log:jest.fn(),
+};
+
 describe('bankAccountDetails class', () => {
   beforeEach(() => {
     bankDetails = new bankAccountDetails();
@@ -28,9 +32,14 @@ describe('bankAccountDetails class', () => {
       ])).toEqual(
         [
           {date: new Date(2022, 1, 1), debit: 100, credit: 0, balance: -100},
-          {date: new Date(2022, 1, 2), debit: 100, credit: 0, balance: -200} 
-          
+          {date: new Date(2022, 1, 2), debit: 100, credit: 0, balance: -200}
         ]);
+    });
+  });
+  describe('#printStatement', () => {
+    it('prints the headers', () => {
+      bankDetails.printStatement()
+      expect(global.console.log).toHaveBeenCalledWith("date || credit || debit || balance")
     });
   });
 });
