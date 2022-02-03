@@ -15,7 +15,7 @@ describe('Bank class', () => {
       bank.deposit(50);
       expect(bank.credit).toBe(50);
     });
-    it('sets debit varible to 0', () => {
+    it('sets debit variable to 0', () => {
       bank.withdraw(50);
       bank.deposit(100);
       expect(bank.debit).toBe(0);
@@ -31,7 +31,7 @@ describe('Bank class', () => {
       bank.withdraw(50);
       expect(bank.debit).toBe(50);
     });
-    it('sets credit varible to 0', () => {
+    it('sets credit variable to 0', () => {
       bank.deposit(100);
       bank.withdraw(50);
       expect(bank.credit).toBe(0);
