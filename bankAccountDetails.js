@@ -15,23 +15,14 @@ class bankAccountDetails {
   };
   formatHistoryNumbers(history) {
     history.forEach((transaction) => {
-      if (transaction['credit'] == 0) {
-        transaction['credit'] = '';
-      } 
-      else {
-        transaction['credit'] = transaction['credit'].toFixed(2);
-      };
-      if (transaction['debit'] == 0) {
-        transaction['debit'] = '';
-      } else {
-        transaction['debit'] = transaction['debit'].toFixed(2);
-      }
-      if (transaction['balance'] == 0) {
-        transaction['balance'] = '';
-      } else {
-        transaction['balance'] = transaction['balance'].toFixed(2);
-      }
-    })
+      ['credit', 'debit', 'balance'].forEach((number) => {
+        if (transaction[number] == 0) {
+          transaction[number] = '';
+        } else {
+          transaction[number] = transaction[number].toFixed(2)
+        };
+      });
+    });
     
     return history
   };
