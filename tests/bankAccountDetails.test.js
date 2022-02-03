@@ -38,8 +38,13 @@ describe('bankAccountDetails class', () => {
   });
   describe('#printStatement', () => {
     it('prints the headers', () => {
-      bankDetails.printStatement()
-      expect(global.console.log).toHaveBeenCalledWith("date || credit || debit || balance")
+      bankDetails.printStatement();
+      expect(global.console.log).toHaveBeenCalledWith("date || credit || debit || balance");
+    });
+  });
+  describe('#formatHistoryNumbers', () => {
+    it('converts credits into the right format', () => {
+      expect(bankDetails.formatHistoryNumbers([{credit: 100}])).toEqual([{credit: '100.00'}]);
     });
   });
 });

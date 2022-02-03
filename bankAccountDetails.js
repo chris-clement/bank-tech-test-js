@@ -13,6 +13,10 @@ class bankAccountDetails {
     });
     return history;
   };
+  formatHistoryNumbers(history) {
+    history[0]['credit'] = history[0]['credit'].toFixed(2);
+    return history
+  };
   printStatement() {
     console.log("date || credit || debit || balance");
   };

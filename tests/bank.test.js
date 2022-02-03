@@ -51,7 +51,9 @@ describe('Bank class', () => {
     });
     it('has an associated date, assumed to be today if no date given', () => {
       bank.withdraw(100);
-      expect(bank.date).toEqual(new Date());
+      expect(bank.date.getDate()).toEqual(new Date().getDate());
+      expect(bank.date.getMonth()).toEqual(new Date().getMonth());
+      expect(bank.date.getFullYear()).toEqual(new Date().getFullYear());
     });
     it('if certain date is entered, this is stored in the date variable', () => {
       bank.withdraw(100, new Date(2022, 1, 1));
