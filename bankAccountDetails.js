@@ -2,9 +2,12 @@ class bankAccountDetails {
   constructor() {
   };
   addBalanceToHistory(history) {
-    this.balance_amount = history[0]['credit'] - history[0]['debit']
-    history[0]["balance"] = this.balance_amount
-    return history
+    this.balance_amount = 0
+    history.forEach(transaction => {
+      this.balance_amount += transaction['credit'] - transaction['debit']
+      transaction["balance"] = this.balance_amount
+    });
+    return history;
   };
 };
 
