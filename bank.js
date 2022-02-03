@@ -4,10 +4,11 @@ class Bank {
     this.debit = 0
   }
   deposit(amount) {
-    this.credit = amount
+    this.credit = amount;
   }
   withdraw(amount) {
-    this.debit = amount
+    this.credit = 0;
+    this.debit = amount;
   }
 }
 
