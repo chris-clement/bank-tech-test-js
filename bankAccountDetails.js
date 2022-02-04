@@ -4,6 +4,9 @@ class bankAccountDetails {
   sort_history_old_to_new(history) {
     history.sort((transaction_a, transaction_b) => transaction_a.date >= transaction_b.date? 1 : -1);
   };
+  sort_history_new_to_old(history) {
+    history.sort((transaction_a, transaction_b) => transaction_a.date < transaction_b.date? 1 : -1);
+  };
   addBalanceToHistory(history) {
     this.balance_amount = 0
     this.sort_history_old_to_new(history)
@@ -19,7 +22,7 @@ class bankAccountDetails {
         if (transaction[number] == 0) {
           transaction[number] = '';
         } else {
-          transaction[number] = transaction[number].toFixed(2)
+          transaction[number] = transaction[number].toFixed(2);
         };
       });
     });
@@ -36,12 +39,15 @@ class bankAccountDetails {
     return history
   };
   printStatement(history) {
+    this.sort_history_new_to_old(history);
     this.addBalanceToHistory(history);
     this.formatHistoryNumbers(history);
     this.formatHistoryDate(history);
     console.log("date || credit || debit || balance\n");
     history.forEach((transaction) => {
-      console.log(`${transaction['date']} || ${transaction['credit']} ||${transaction['debit']} || ${transaction['balance']}\n`);
+      if(transaction['credit'] == '') {
+        console.log(`${transaction['date']} ||${transaction['credit']} || ${transaction['debit']} || ${transaction['balance']}\n`);} else {
+        console.log(`${transaction['date']} || ${transaction['credit']} ||${transaction['debit']} || ${transaction['balance']}\n`);}
     });
   };
 };
