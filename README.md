@@ -7,7 +7,7 @@ A simple Bank tech app to be used within irb to create a bank account, deposit a
 ### Tech stack used
 
 - JS
-- Rspec for testing
+- Jest for testing (100% Coverage)
 
 ### How to run
 
