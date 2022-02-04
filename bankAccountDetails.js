@@ -3,9 +3,11 @@ class bankAccountDetails {
   };
   sort_history_old_to_new(history) {
     history.sort((transaction_a, transaction_b) => transaction_a.date >= transaction_b.date? 1 : -1);
+    return history;
   };
   sort_history_new_to_old(history) {
     history.sort((transaction_a, transaction_b) => transaction_a.date < transaction_b.date? 1 : -1);
+    return history;
   };
   addBalanceToHistory(history) {
     this.balance_amount = 0

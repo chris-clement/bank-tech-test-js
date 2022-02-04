@@ -73,6 +73,11 @@ describe('bankAccountDetails class', () => {
   describe('#formatHistoryDate', () => {
     it('converts the date into a acceptable format', () => {
       expect(bankDetails.formatHistoryDate([{date: new Date(2022, 1, 1)}])).toEqual([{date: "01/01/2022"}]);
-    })
-  })
+    });
+  });
+  describe('#sort_history_old_to_new', () => {
+    it('sorts the history from old to new', () => {
+      expect(bankDetails.sort_history_old_to_new([{date: new Date(2022, 1, 2)}, {date: new Date(2022, 1, 1)}])).toEqual([{date: new Date(2022, 1, 1)}, {date: new Date(2022, 1, 2)}]);
+    });
+  });
 });
