@@ -44,8 +44,19 @@ describe('bankAccountDetails class', () => {
     it('prints a single deposit transaction', () => {
       bankDetails.printStatement([{date: new Date(2023, 1, 10), credit: 1000, debit: 0, balance: 1000}]);
       expect(global.console.log).toHaveBeenCalledWith(
-        "date || credit || debit || balance\n" + 
-        "10/01/2023 || 1000.00 || || 1000.00");
+        "date || credit || debit || balance\n");
+        expect(global.console.log).toHaveBeenCalledWith(
+        "10/01/2023 || 1000.00 || || 1000.00\n");
+    });
+    it('prints a two deposit transactions', () => {
+      bankDetails.printStatement([{date: new Date(2023, 1, 10), credit: 1000, debit: 0, balance: 1000},
+        {date: new Date(2023, 1, 13), credit: 2000, debit: 0, balance: 2000}]);
+        expect(global.console.log).toHaveBeenCalledWith(
+          "date || credit || debit || balance\n");
+        expect(global.console.log).toHaveBeenCalledWith(
+          "13/01/2023 || 2000.00 || || 3000.00\n");
+        expect(global.console.log).toHaveBeenCalledWith(
+          "10/01/2023 || 1000.00 || || 1000.00\n");
     });
   });
   describe('#formatHistoryNumbers', () => {
