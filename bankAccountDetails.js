@@ -21,19 +21,6 @@ class bankAccountDetails {
     });
     return history;
   };
-  formatHistoryNumbers(history) {
-    history.forEach((transaction) => {
-      ['credit', 'debit', 'balance'].forEach((number) => {
-        if (transaction[number] == 0) {
-          transaction[number] = '';
-        } else {
-          transaction[number] = transaction[number].toFixed(2);
-        };
-      });
-    });
-    
-    return history
-  };
   formatHistoryDate(history) {
     history.forEach((transaction) => {
       var dd = String(transaction['date'].getDate()).padStart(2, '0');
