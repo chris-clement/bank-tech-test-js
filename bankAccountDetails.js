@@ -36,9 +36,10 @@ class bankAccountDetails {
     return history
   };
   printStatement(history) {
-    this.formatHistoryNumbers(history)
-    this.formatHistoryDate(history)
-    console.log("date || credit || debit || balance\n")
+    this.addBalanceToHistory(history);
+    this.formatHistoryNumbers(history);
+    this.formatHistoryDate(history);
+    console.log("date || credit || debit || balance\n");
     history.forEach((transaction) => {
       console.log(`${transaction['date']} || ${transaction['credit']} ||${transaction['debit']} || ${transaction['balance']}\n`);
     });

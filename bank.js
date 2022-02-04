@@ -12,14 +12,19 @@ class Bank {
     this.debit = 0;
     this.credit = amount;
     this.date = date;
+    this.addToTransactionHistory();
   }
   withdraw(amount, date = new Date()) {
     this.credit = 0;
     this.debit = amount;
     this.date = date;
+    this.addToTransactionHistory();
   }
   addToTransactionHistory() {
     this.transaction_history.push({ date: this.date, debit: this.debit, credit: this.credit})
+  }
+  printStatement() {
+    this.bankAccountDetails.printStatement(this.transaction_history)
   }
 }
 
