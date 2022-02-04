@@ -80,4 +80,9 @@ describe('bankAccountDetails class', () => {
       expect(bankDetails.sort_history_old_to_new([{date: new Date(2022, 1, 2)}, {date: new Date(2022, 1, 1)}])).toEqual([{date: new Date(2022, 1, 1)}, {date: new Date(2022, 1, 2)}]);
     });
   });
+  describe('#sort_history_new_to_old', () => {
+    it('sorts the history from new to old', () => {
+      expect(bankDetails.sort_history_new_to_old([{date: new Date(2022, 1, 3)}, {date: new Date(2022, 1, 1)}, {date: new Date(2022, 1, 2)}])).toEqual([{date: new Date(2022, 1, 3)},  {date: new Date(2022, 1, 2)}, {date: new Date(2022, 1, 1)}]);
+    });
+  });
 });
