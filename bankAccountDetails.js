@@ -1,17 +1,17 @@
 class bankAccountDetails {
   constructor() {
   };
-  sort_history_old_to_new(history) {
+  sortHistoryOldToNew(history) {
     history.sort((transaction_a, transaction_b) => transaction_a.date >= transaction_b.date? 1 : -1);
     return history;
   };
-  sort_history_new_to_old(history) {
+  sortHistoryNewToOld(history) {
     history.sort((transaction_a, transaction_b) => transaction_a.date < transaction_b.date? 1 : -1);
     return history;
   };
   addBalanceToHistory(history) {
     this.balance_amount = 0
-    this.sort_history_old_to_new(history)
+    this.sortHistoryOldToNew(history)
     history.forEach(transaction => {
       this.balance_amount += transaction['credit'] - transaction['debit']
       transaction["balance"] = this.balance_amount
@@ -41,7 +41,7 @@ class bankAccountDetails {
     return history
   };
   printStatement(history) {
-    this.sort_history_new_to_old(history);
+    this.sortHistoryNewToOld(history);
     this.addBalanceToHistory(history);
     this.formatHistoryNumbers(history);
     this.formatHistoryDate(history);
