@@ -1,5 +1,8 @@
+const formatTransactionHistory = require('./formatTransactionHistory.js')
+
 class bankAccountDetails {
   constructor() {
+    this.formatTransactionHistory = new formatTransactionHistory();
   };
   sortHistoryOldToNew(history) {
     history.sort((transaction_a, transaction_b) => transaction_a.date >= transaction_b.date? 1 : -1);
@@ -43,7 +46,7 @@ class bankAccountDetails {
   printStatement(history) {
     this.sortHistoryNewToOld(history);
     this.addBalanceToHistory(history);
-    this.formatHistoryNumbers(history);
+    this.formatTransactionHistory.formatHistoryNumbers(history);
     this.formatHistoryDate(history);
     console.log("date || credit || debit || balance\n");
     history.forEach((transaction) => {
