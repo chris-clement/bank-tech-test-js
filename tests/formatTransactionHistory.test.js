@@ -15,4 +15,9 @@ describe('formatTransactionHistory class', () => {
       expect(formatData.formatHistoryNumbers([{credit: 0, debit: 100, balance: -100}, {credit: 0, debit: 100, balance: -200}] )).toEqual([{credit: '', debit: '100.00', balance:'-100.00'}, {credit: '', debit: '100.00', balance:'-200.00'}]);
     })
   });
+  describe('#formatHistoryDate', () => {
+    it('converts the date into a acceptable format', () => {
+      expect(formatData.formatHistoryDate([{date: new Date(2022, 1, 1)}])).toEqual([{date: "01/01/2022"}]);
+    });
+  });
 })

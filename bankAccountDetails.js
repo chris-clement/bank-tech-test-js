@@ -21,20 +21,11 @@ class bankAccountDetails {
     });
     return history;
   };
-  formatHistoryDate(history) {
-    history.forEach((transaction) => {
-      var dd = String(transaction['date'].getDate()).padStart(2, '0');
-      var mm = String(transaction['date'].getMonth()).padStart(2, '0');
-      var yyyy = String(transaction['date'].getFullYear());
-      transaction['date'] = dd + '/' + mm + '/' + yyyy
-    });
-    return history
-  };
   printStatement(history) {
     this.sortHistoryNewToOld(history);
     this.addBalanceToHistory(history);
     this.formatTransactionHistory.formatHistoryNumbers(history);
-    this.formatHistoryDate(history);
+    this.formatTransactionHistory.formatHistoryDate(history);
     console.log("date || credit || debit || balance\n");
     history.forEach((transaction) => {
       if(transaction['credit'] == '') {
